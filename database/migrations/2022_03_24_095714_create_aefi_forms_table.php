@@ -31,37 +31,40 @@ return new class extends Migration
             $table->text('p1_reporter_prc')->nullable();
             $table->text('p1_reporter_email')->nullable();
 
-            $table->tinyInt('p4_chestpain_yn');
+            $table->tinyInteger('p3_withpreviousreport_yn');
+            $table->tinyInteger('p3_heterologous_yn');
+
+            $table->tinyInteger('p4_chestpain_yn');
             $table->timestamp('p4_chestpain_onset_datetime')->nullable();
-            $table->tinyInt('p4_chills_yn');
+            $table->tinyInteger('p4_chills_yn');
             $table->timestamp('p4_chills_onset_datetime')->nullable();
-            $table->tinyInt('p4_colds_yn');
+            $table->tinyInteger('p4_colds_yn');
             $table->timestamp('p4_colds_onset_datetime')->nullable();
-            $table->tinyInt('p4_dizziness_yn');
+            $table->tinyInteger('p4_dizziness_yn');
             $table->timestamp('p4_dizziness_onset_datetime')->nullable();
-            $table->tinyInt('p4_feelingunwell_yn');
+            $table->tinyInteger('p4_feelingunwell_yn');
             $table->timestamp('p4_feelingunwell_onset_datetime')->nullable();
-            $table->tinyInt('p4_fever_yn');
+            $table->tinyInteger('p4_fever_yn');
             $table->timestamp('p4_fever_onset_datetime')->nullable();
-            $table->tinyInt('p4_headache_yn');
+            $table->tinyInteger('p4_headache_yn');
             $table->timestamp('p4_headache_onset_datetime')->nullable();
-            $table->tinyInt('p4_itching_yn');
+            $table->tinyInteger('p4_itching_yn');
             $table->timestamp('p4_itching_onset_datetime')->nullable();
-            $table->tinyInt('p4_jointpain_yn');
+            $table->tinyInteger('p4_jointpain_yn');
             $table->timestamp('p4_jointpain_onset_datetime')->nullable();
-            $table->tinyInt('p4_musclepain_yn');
+            $table->tinyInteger('p4_musclepain_yn');
             $table->timestamp('p4_musclepain_onset_datetime')->nullable();
-            $table->tinyInt('p4_nausea_yn');
+            $table->tinyInteger('p4_nausea_yn');
             $table->timestamp('p4_nausea_onset_datetime')->nullable();
-            $table->tinyInt('p4_bodyrash_yn');
+            $table->tinyInteger('p4_bodyrash_yn');
             $table->timestamp('p4_bodyrash_onset_datetime')->nullable();
-            $table->tinyInt('p4_tiredness_yn');
+            $table->tinyInteger('p4_tiredness_yn');
             $table->timestamp('p4_tiredness_onset_datetime')->nullable();
-            $table->tinyInt('p4_vaccinesitepain_yn');
+            $table->tinyInteger('p4_vaccinesitepain_yn');
             $table->timestamp('p4_vaccinesitepain_onset_datetime')->nullable();
-            $table->tinyInt('p4_vomiting_yn');
+            $table->tinyInteger('p4_vomiting_yn');
             $table->timestamp('p4_vomiting_onset_datetime')->nullable();
-            $table->tinyInt('p4_increasedbp_yn');
+            $table->tinyInteger('p4_increasedbp_yn');
             $table->timestamp('p4_increasedbp_onset_datetime')->nullable();
             $table->text('p4_increasedbp_withhypertension_yn')->nullable();
             $table->integer('p4_pre_bp1')->nullable();
@@ -86,14 +89,48 @@ return new class extends Migration
             $table->date('p4_pm_admitted_date')->nullable();
             $table->text('p4_pm_admitted_diagnosis')->nullable();
 
-            $table->tinyInt('p4_seriouscase_yn');
+            $table->tinyInteger('p4_seriouscase_yn');
             $table->text('p4_seriouscase_ifyes_type')->nullable();
             $table->text('p4_seriouscase_ifyes_other_specify')->nullable();
 
             $table->text('p5_phys_lname');
             $table->text('p5_phys_fname');
             $table->text('p5_phys_mname')->nullable();
-            
+            $table->text('p5_phys_contactno');
+            $table->text('p5_phys_prc');
+            $table->date('p5_phys_investigate_date');
+
+            $table->text('p5_otherinfo_from_list')->nullable();
+            $table->text('p5_otherinfo_from_list_specify')->nullable();
+            $table->text('p5_otherinfo_lname')->nullable();
+            $table->text('p5_otherinfo_fname')->nullable();
+            $table->text('p5_otherinfo_mname')->nullable();
+            $table->text('p5_otherinfo_contactno')->nullable();
+            $table->text('p5_otherinfo_prc')->nullable();
+            $table->text('p5_otherinfo_relationdesignation')->nullable();
+
+            $table->text('p6_modeofexam_list')->nullable();
+            $table->text('p6_modeofexam_other_specify')->nullable();
+            $table->tinyInteger('p6_ifdied_autopsyrecommended')->nullable();
+            $table->text('p6_ifdied_autopsynotdone_list')->nullable();
+            $table->text('p6_ifdied_autopsynotdone_other_specify')->nullable();
+            $table->text('p6_ifdied_verbalautopsy_name')->nullable();
+            $table->text('p6_ifdied_verbalautopsy_relationship')->nullable();
+
+            $table->text('p7_completediagnosis')->nullable();
+            $table->text('p7_narratechronology')->nullable();
+            $table->text('p7_sxreview_support')->nullable();
+            $table->text('p7_sxreview_notsupport')->nullable();
+            $table->text('p7_medobhistory_support')->nullable();
+            $table->text('p7_medobhistory_notsupport')->nullable();
+            $table->text('p7_familyhistory_support')->nullable();
+            $table->text('p7_familyhistory_notsupport')->nullable();
+            $table->text('p7_personalhistory_support')->nullable();
+            $table->text('p7_personalhistory_notsupport')->nullable();
+            $table->text('p7_physicalexam_support')->nullable();
+            $table->text('p7_physicalexam_notsupport')->nullable();
+
+            $table->text('p7_item3')->nullable();
         });
     }
 
