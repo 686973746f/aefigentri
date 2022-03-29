@@ -117,8 +117,8 @@ return new class extends Migration
             $table->text('p6_ifdied_verbalautopsy_name')->nullable();
             $table->text('p6_ifdied_verbalautopsy_relationship')->nullable();
 
-            $table->text('p7_completediagnosis')->nullable();
-            $table->text('p7_narratechronology')->nullable();
+            $table->text('p7_item1')->nullable();
+            $table->text('p7_item2')->nullable();
             $table->text('p7_sxreview_support')->nullable();
             $table->text('p7_sxreview_notsupport')->nullable();
             $table->text('p7_medobhistory_support')->nullable();
@@ -131,6 +131,38 @@ return new class extends Migration
             $table->text('p7_physicalexam_notsupport')->nullable();
 
             $table->text('p7_item3')->nullable();
+
+            $table->timestamps('p8_course_datetime1')->nullable();
+            $table->text('p8_course_subjective_findings1')->nullable();
+            $table->text('p8_course_objective_findings1')->nullable();
+            $table->text('p8_course_assessment1')->nullable();
+            $table->text('p8_course_managementdone1')->nullable();
+            $table->timestamps('p8_course_datetime2')->nullable();
+            $table->text('p8_course_subjective_findings2')->nullable();
+            $table->text('p8_course_objective_findings2')->nullable();
+            $table->text('p8_course_assessment2')->nullable();
+            $table->text('p8_course_managementdone2')->nullable();
+            $table->timestamps('p8_course_datetime3')->nullable();
+            $table->text('p8_course_subjective_findings3')->nullable();
+            $table->text('p8_course_objective_findings3')->nullable();
+            $table->text('p8_course_assessment3')->nullable();
+            $table->text('p8_course_managementdone3')->nullable();
+            $table->timestamps('p8_course_datetime4')->nullable();
+            $table->text('p8_course_subjective_findings4')->nullable();
+            $table->text('p8_course_objective_findings4')->nullable();
+            $table->text('p8_course_assessment4')->nullable();
+            $table->text('p8_course_managementdone4')->nullable();
+
+            $table->tinyInteger('p9_item1_yn')->nullable();
+            $table->text('p9_item1_remarks')->nullable();
+            $table->tinyInteger('p9_item2_yn')->nullable();
+            $table->text('p9_item2_remarks')->nullable();
+            $table->tinyInteger('p9_item3a_yn')->nullable();
+            $table->text('p9_item3a_remarks')->nullable();
+            $table->tinyInteger('p9_item3b_yn')->nullable();
+            $table->text('p9_item3b_remarks')->nullable();
+            $table->tinyInteger('p9_item4_yn')->nullable();
+            $table->text('p9_item4_remarks')->nullable();
         });
     }
 
