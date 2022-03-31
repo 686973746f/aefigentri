@@ -20,6 +20,9 @@ return new class extends Migration
             $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('cascade');
 
+            $table->tinyInteger('is_approved');
+            $table->text('qr_id')->nullable();
+            $table->text('unique_person_id')->nullable();
             $table->text('lname');
             $table->text('fname');
             $table->text('mname')->nullable();
@@ -46,6 +49,68 @@ return new class extends Migration
 
             $table->text('contactno');
             $table->text('email')->nullable();
+
+            $table->tinyInteger('is_pwd');
+            $table->tinyInteger('is_indigenous');
+
+            $table->foreignId('firstdose_schedule_id')->nullable()->constrained('vaccination_schedule')->onDelete('cascade');
+            $table->date('firstdose_schedule_date_by_user')->nullable();
+            $table->tinyInteger('firstdose_is_deferred')->nullable();
+            $table->text('firstdose_deferred_reason')->nullable();
+            $table->date('firstdose_deferred_date')->nullable();
+            $table->tinyInteger('firstdose_is_attended')->nullable();
+            $table->date('seconddose_original_date')->nullable();
+            $table->date('firstdose_date')->nullable();
+            $table->tinyInteger('firstdose_is_local')->default(1);
+            $table->text('firstdose_location')->nullable();
+            $table->text('firstdose_site_injection')->nullable();
+            $table->text('firstdose_name')->nullable();
+            $table->text('firstdose_batch_no')->nullable();
+            $table->text('firstdose_lot_no')->nullable();
+            $table->text('firstdose_adverse_events')->nullable();
+            $table->text('firstdose_vaccinator_name')->nullable();
+
+            $table->foreignId('seconddose_schedule_id')->nullable()->constrained('vaccination_schedule')->onDelete('cascade');
+            $table->date('seconddose_schedule_date_by_user')->nullable();
+            $table->tinyInteger('seconddose_is_deferred')->nullable();
+            $table->text('seconddose_deferred_reason')->nullable();
+            $table->date('seconddose_deferred_date')->nullable();
+            $table->tinyInteger('seconddose_is_attended')->nullable();
+            $table->date('seconddose_original_date')->nullable();
+            $table->date('seconddose_date')->nullable();
+            $table->tinyInteger('seconddose_is_local')->default(1);
+            $table->text('seconddose_location')->nullable();
+            $table->text('seconddose_site_injection')->nullable();
+            $table->text('seconddose_name')->nullable();
+            $table->text('seconddose_batch_no')->nullable();
+            $table->text('seconddose_lot_no')->nullable();
+            $table->text('seconddose_adverse_events')->nullable();
+            $table->text('seconddose_vaccinator_name')->nullable();
+
+            $table->foreignId('booster_schedule_id')->nullable()->constrained('vaccination_schedule')->onDelete('cascade');
+            $table->date('booster_schedule_date_by_user')->nullable();
+            $table->tinyInteger('booster_is_deferred')->nullable();
+            $table->text('booster_deferred_reason')->nullable();
+            $table->date('booster_deferred_date')->nullable();
+            $table->tinyInteger('booster_is_attended')->nullable();
+            $table->date('booster_original_date')->nullable();
+            $table->tinyInteger('booster_is_local')->default(1);
+            $table->date('booster_date')->nullable();
+            $table->text('booster_location')->nullable();
+            $table->text('booster_site_injection')->nullable();
+            $table->text('booster_name')->nullable();
+            $table->text('booster_batch_no')->nullable();
+            $table->text('booster_lot_no')->nullable();
+            $table->text('booster_adverse_events')->nullable();
+            $table->text('booster_vaccinator_name')->nullable();
+
+            $table->text('comorbid_list')->nullable();
+            $table->text('allergy_list')->nullable();
+
+            $table->text('requirement_id_filepath')->nullable();
+            $table->text('requirement_selfie')->nullable();
+
+            $table->text('remarks')->nullable();
         });
     }
 
