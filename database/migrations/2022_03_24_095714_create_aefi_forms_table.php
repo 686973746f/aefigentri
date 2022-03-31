@@ -132,22 +132,22 @@ return new class extends Migration
 
             $table->text('p7_item3')->nullable();
 
-            $table->timestamps('p8_course_datetime1')->nullable();
+            $table->dateTime('p8_course_datetime1')->nullable();
             $table->text('p8_course_subjective_findings1')->nullable();
             $table->text('p8_course_objective_findings1')->nullable();
             $table->text('p8_course_assessment1')->nullable();
             $table->text('p8_course_managementdone1')->nullable();
-            $table->timestamps('p8_course_datetime2')->nullable();
+            $table->dateTime('p8_course_datetime2')->nullable();
             $table->text('p8_course_subjective_findings2')->nullable();
             $table->text('p8_course_objective_findings2')->nullable();
             $table->text('p8_course_assessment2')->nullable();
             $table->text('p8_course_managementdone2')->nullable();
-            $table->timestamps('p8_course_datetime3')->nullable();
+            $table->dateTime('p8_course_datetime3')->nullable();
             $table->text('p8_course_subjective_findings3')->nullable();
             $table->text('p8_course_objective_findings3')->nullable();
             $table->text('p8_course_assessment3')->nullable();
             $table->text('p8_course_managementdone3')->nullable();
-            $table->timestamps('p8_course_datetime4')->nullable();
+            $table->dateTime('p8_course_datetime4')->nullable();
             $table->text('p8_course_subjective_findings4')->nullable();
             $table->text('p8_course_objective_findings4')->nullable();
             $table->text('p8_course_assessment4')->nullable();

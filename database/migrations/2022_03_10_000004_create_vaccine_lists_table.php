@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('vaccine_lists', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('vaccine_name');
+            $table->string('default_batchno');
+            $table->string('default_lotno');
+            $table->date('expiration_date')->nullable();
         });
     }
 

@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('vaccination_details', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            /*
             $table->foreignId('patient_id')->nullable()->constrained()->onDelete('cascade');
             
-            $table->tinyInt('dose_number');
+            $table->tinyInteger('dose_number');
             $table->text('vaccine_name');
-            $table->text('vaccination_place')->default('Local');
-            $table->timestamps('vaccination_date');
+            $table->text('vaccination_place');
+            $table->dateTime('vaccination_date');
             $table->text('site_injection');
             $table->text('batch_lot_number');
             $table->date('expiry_date')->nullable();
@@ -35,11 +36,12 @@ return new class extends Migration
             $table->text('vaccinationsite_citymun_code');
             $table->text('vaccinationsite_brgy');
             $table->text('diluent')->nullable();
-            $table->timestamps('reconstitution_datetime')->nullable();
+            $table->dateTime('reconstitution_datetime')->nullable();
             $table->text('diluent_batchno')->nullable();
             $table->date('diluent_expiration_date')->nullable();
             $table->text('procured_from');
             $table->text('procured_from_others_specify')->nullable();
+            */
         });
     }
 

@@ -16,16 +16,16 @@ return new class extends Migration
         Schema::create('vaccination_centers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('card_prefix');
-            $table->text('name');
-            $table->text('site_name');
-            $table->text('vaccinationsite_country')->default('Philippines');
-            $table->text('vaccinationsite_region');
-            $table->text('vaccinationsite_region_code');
-            $table->text('vaccinationsite_province');
-            $table->text('vaccinationsite_province_code');
-            $table->text('site_province');
-            $table->text('site_province_code');
+            $table->string('card_prefix');
+            $table->string('name');
+            $table->string('vaccinationsite_location');
+            $table->string('vaccinationsite_country');
+            $table->string('vaccinationsite_region');
+            $table->string('vaccinationsite_region_code');
+            $table->string('vaccinationsite_province');
+            $table->string('vaccinationsite_province_code');
+            $table->string('site_province');
+            $table->string('site_province_code');
             $table->time('time_start');
             $table->time('time_end');
             $table->tinyInteger('is_mobile_vaccination');

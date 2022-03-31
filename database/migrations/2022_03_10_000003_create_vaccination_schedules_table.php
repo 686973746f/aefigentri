@@ -16,13 +16,15 @@ return new class extends Migration
         Schema::create('vaccination_schedules', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('sched_type');
+            $table->text('sched_type'); //1st, 2nd dose, Booster
             $table->tinyInteger('is_active');
             $table->tinyInteger('is_adult');
             $table->tinyInteger('is_pedia');
-            $table->timestamps('sched_timestart');
-            $table->timestamps('sched_timeend');
+            $table->dateTime('sched_timestart');
+            $table->dateTime('sched_timeend');
             $table->integer('max_slots');
+            //$table->foreignId('vaccine_id')->constrained('vaccine_lists')->onDelete('cascade');
+            $table->foreignId('vaccination_center_id')->constrained('vaccination_centers')->onDelete('cascade');
         });
     }
 

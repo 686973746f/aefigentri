@@ -23,18 +23,22 @@ return new class extends Migration
             $table->tinyInteger('is_approved');
             $table->text('qr_id')->nullable();
             $table->text('unique_person_id')->nullable();
+
+            $table->string('username');
+            $table->string('password');
+
             $table->text('lname');
             $table->text('fname');
             $table->text('mname')->nullable();
             $table->text('suffix')->nullable();
             $table->date('bdate');
-            $table->text('sex');
-            $table->tinyInt('if_female_pregnant');
-            $table->tinyInt('if_female_lactating');
-            $table->text('cs');
+            $table->string('sex');
+            $table->tinyInteger('if_female_pregnant');
+            $table->tinyInteger('if_female_lactating');
+            $table->string('cs');
             $table->text('philhealth');
             $table->text('nationality');
-            $table->text('priority_group');
+            $table->string('priority_group');
             $table->text('priority_specify')->nullable();
             $table->text('address_region_code');
             $table->text('address_region_text');
@@ -53,24 +57,24 @@ return new class extends Migration
             $table->tinyInteger('is_pwd');
             $table->tinyInteger('is_indigenous');
 
-            $table->foreignId('firstdose_schedule_id')->nullable()->constrained('vaccination_schedule')->onDelete('cascade');
+            $table->foreignId('firstdose_schedule_id')->nullable()->references('id')->on('vaccination_schedules')->onDelete('cascade');
             $table->date('firstdose_schedule_date_by_user')->nullable();
             $table->tinyInteger('firstdose_is_deferred')->nullable();
             $table->text('firstdose_deferred_reason')->nullable();
             $table->date('firstdose_deferred_date')->nullable();
             $table->tinyInteger('firstdose_is_attended')->nullable();
-            $table->date('seconddose_original_date')->nullable();
+            $table->date('firstdose_original_date')->nullable();
             $table->date('firstdose_date')->nullable();
             $table->tinyInteger('firstdose_is_local')->default(1);
             $table->text('firstdose_location')->nullable();
             $table->text('firstdose_site_injection')->nullable();
             $table->text('firstdose_name')->nullable();
-            $table->text('firstdose_batch_no')->nullable();
-            $table->text('firstdose_lot_no')->nullable();
+            $table->text('firstdose_batchno')->nullable();
+            $table->text('firstdose_lotno')->nullable();
             $table->text('firstdose_adverse_events')->nullable();
             $table->text('firstdose_vaccinator_name')->nullable();
 
-            $table->foreignId('seconddose_schedule_id')->nullable()->constrained('vaccination_schedule')->onDelete('cascade');
+            $table->foreignId('seconddose_schedule_id')->nullable()->references('id')->on('vaccination_schedules')->onDelete('cascade');
             $table->date('seconddose_schedule_date_by_user')->nullable();
             $table->tinyInteger('seconddose_is_deferred')->nullable();
             $table->text('seconddose_deferred_reason')->nullable();
@@ -82,12 +86,12 @@ return new class extends Migration
             $table->text('seconddose_location')->nullable();
             $table->text('seconddose_site_injection')->nullable();
             $table->text('seconddose_name')->nullable();
-            $table->text('seconddose_batch_no')->nullable();
-            $table->text('seconddose_lot_no')->nullable();
+            $table->text('seconddose_batchno')->nullable();
+            $table->text('seconddose_lotno')->nullable();
             $table->text('seconddose_adverse_events')->nullable();
             $table->text('seconddose_vaccinator_name')->nullable();
 
-            $table->foreignId('booster_schedule_id')->nullable()->constrained('vaccination_schedule')->onDelete('cascade');
+            $table->foreignId('booster_schedule_id')->nullable()->references('id')->on('vaccination_schedules')->onDelete('cascade');
             $table->date('booster_schedule_date_by_user')->nullable();
             $table->tinyInteger('booster_is_deferred')->nullable();
             $table->text('booster_deferred_reason')->nullable();
@@ -99,8 +103,8 @@ return new class extends Migration
             $table->text('booster_location')->nullable();
             $table->text('booster_site_injection')->nullable();
             $table->text('booster_name')->nullable();
-            $table->text('booster_batch_no')->nullable();
-            $table->text('booster_lot_no')->nullable();
+            $table->text('booster_batchno')->nullable();
+            $table->text('booster_lotno')->nullable();
             $table->text('booster_adverse_events')->nullable();
             $table->text('booster_vaccinator_name')->nullable();
 
@@ -109,6 +113,12 @@ return new class extends Migration
 
             $table->text('requirement_id_filepath')->nullable();
             $table->text('requirement_selfie')->nullable();
+
+            $table->string('ifpedia_guardian_lname')->nullable();
+            $table->string('ifpedia_guardian_fname')->nullable();
+            $table->string('ifpedia_guardian_mname')->nullable();
+
+            $table->text('ifpedia_requirements')->nullable();
 
             $table->text('remarks')->nullable();
         });
